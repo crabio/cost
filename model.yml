@@ -2,7 +2,6 @@ nodes:
   1:
     name: Client
     type: client
-    model: rest
     qty: 10
     requests:
       period: 1m
@@ -12,15 +11,18 @@ nodes:
     type: custom
   3:
     name: Kafka
+    type: component
     model: 1
   4:
     name: Gateway
     type: custom
   5:
     name: RabbitMQ
+    type: component
     model: 2
   6:
     name: DB
+    type: component
     model: 3
 
 links:

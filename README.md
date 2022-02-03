@@ -1,2 +1,1 @@
-# cost
-COST (Component Oriented Simulating Tool)
+# COST (Component Oriented Simulating Tool)
