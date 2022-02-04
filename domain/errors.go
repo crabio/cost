@@ -3,5 +3,9 @@ package domain
 import "errors"
 
 var (
-	COULDNT_INIT_CONTAINER_LAUNCHER = errors.New("couldn't init container launcher")
+	ERROR_PARSE_ARGUMENTS        = errors.New("couldn't parse arguments")
+	ERROR_PARSE_CONFIG           = errors.New("couldn't parse config")
+	ERROR_CONVERT_CONFIG_TO_JSON = errors.New("couldn't conver config to JSON")
+	ERROR_INIT_LOGGER            = errors.New("couldn't init logger")
+	ERROR_PARSE_SCHEME_CONFIG    = errors.New("couldn't parse scheme config")
 )

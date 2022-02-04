@@ -1,8 +1,6 @@
 package main
 
 import (
-	"encoding/json"
-
 	"github.com/iakrevetkho/cost/domain"
 	"github.com/iakrevetkho/cost/internal/helpers"
 	"github.com/jessevdk/go-flags"
@@ -15,19 +13,19 @@ var cfg domain.Config
 
 func init() {
 	if _, err := flags.Parse(&opts); err != nil {
-		logrus.WithError(err).Fatal("Can't parse arguments")
+		logrus.WithError(err).Fatal(domain.ERROR_PARSE_ARGUMENTS)
 	}
 
 	if err := configor.Load(&cfg, "config.yaml"); err != nil {
-		logrus.WithError(err).Fatal("Can't parse conf")
+		logrus.WithError(err).Fatal(domain.ERROR_PARSE_CONFIG)
 	}
 
 	if err := helpers.InitLogger(&cfg); err != nil {
-		logrus.WithError(err).Fatal("Couldn't init logger")
+		logrus.WithError(err).Fatal(domain.ERROR_INIT_LOGGER)
 	}
 
-	if cfgJson, err := json.Marshal(cfg); err != nil {
-		logrus.WithError(err).Fatal("Couldn't serialize config to JSON")
+	if cfgJson, err := cfg.ToJson(); err != nil {
+		logrus.WithError(err).Fatal(domain.ERROR_CONVERT_CONFIG_TO_JSON)
 	} else {
 		// Use Infof to prevent \" symbols if using WithField
 		logrus.Infof("Loaded config: %s", cfgJson)
@@ -37,4 +35,10 @@ func init() {
 func main() {
 	logrus.WithField("filePath", opts.FilePath).Debug("opts")
 
+	sc, err := domain.NewSchemeConfigFromYaml(opts.FilePath)
+	if err != nil {
+		logrus.WithError(err).Fatal(domain.ERROR_PARSE_SCHEME_CONFIG)
+	}
+
+	logrus.WithField("cfg", sc).Debug("parsed scheme config")
 }

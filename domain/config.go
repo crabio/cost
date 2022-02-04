@@ -1,6 +1,8 @@
 package domain
 
 import (
+	"encoding/json"
+
 	"github.com/sirupsen/logrus"
 )
 
@@ -15,4 +17,8 @@ type LogConfig struct {
 	MaxFilesCount    int          `default:"7" env:"LOG_MAX_FILES_COUNT"`
 	MaxFileAgeInDays int          `default:"7" env:"LOG_MAX_FILE_AGE_IN_DAYS"`
 	CompressOldFiles bool         `default:"true" env:"LOG_COMPRESS_OLD_FILES"`
+}
+
+func (c *Config) ToJson() ([]byte, error) {
+	return json.Marshal(c)
 }
