@@ -27,4 +27,4 @@ build:
 	go build -ldflags "-s -w" -o out/cost
 
 run:
-	LOG_LEVEL=debug go run . -f model.yml
+	LOG_LEVEL=debug go run . -f example.yml
