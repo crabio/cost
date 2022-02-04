@@ -2,22 +2,22 @@ package main
 
 import (
 	"encoding/json"
-	"io/ioutil"
 
 	"github.com/iakrevetkho/cost/domain"
 	"github.com/iakrevetkho/cost/internal/helpers"
-
-	cl_usecase "github.com/iakrevetkho/cost/container_launcher/usecase"
-	dt_usecase "github.com/iakrevetkho/cost/database_tester/usecase"
-	tester_usecase "github.com/iakrevetkho/cost/tester/usecase"
-
+	"github.com/jessevdk/go-flags"
 	"github.com/jinzhu/configor"
 	"github.com/sirupsen/logrus"
 )
 
+var opts domain.Opts
 var cfg domain.Config
 
 func init() {
+	if _, err := flags.Parse(&opts); err != nil {
+		logrus.WithError(err).Fatal("Can't parse arguments")
+	}
+
 	if err := configor.Load(&cfg, "config.yaml"); err != nil {
 		logrus.WithError(err).Fatal("Can't parse conf")
 	}
@@ -35,27 +35,6 @@ func init() {
 }
 
 func main() {
-	cluc, err := cl_usecase.NewContainerLauncherUsecase()
-	if err != nil {
-		logrus.WithError(err).Fatal(domain.COULDNT_INIT_CONTAINER_LAUNCHER)
-	}
+	logrus.WithField("filePath", opts.FilePath).Debug("opts")
 
-	dtuc := dt_usecase.NewDatabaseTesterUsecase(cluc)
-
-	tuc := tester_usecase.NewTesterUsecase(cluc, dtuc)
-
-	report, err := tuc.RunCases(cfg.TestCases)
-	if err != nil {
-		logrus.WithError(err).Error("test case error")
-	}
-	logrus.WithField("report", report).Info("test cases done")
-
-	reportBytes, err := json.Marshal(report)
-	if err != nil {
-		logrus.WithError(err).Fatal("couldn't serialise report")
-	}
-
-	if err := ioutil.WriteFile(cfg.Report.FilePath, reportBytes, 0644); err != nil {
-		logrus.WithError(err).Fatal("couldn't write report")
-	}
 }

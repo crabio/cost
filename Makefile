@@ -1,5 +1,5 @@
 help:
-	@echo "Makefile for the testing tool"
+	@echo "Makefile for the simulating tool"
 	@echo "Available targets:"
 	@echo " help - print help information"
 	@echo " install - install required dependecies for the project"
@@ -24,7 +24,7 @@ test:
 
 build:
 	@echo "Build app binary"
-	go build -ldflags "-s -w" -o out/cott
+	go build -ldflags "-s -w" -o out/cost
 
 run:
-	LOG_LEVEL=debug go run .
+	LOG_LEVEL=debug go run . -f model.yml

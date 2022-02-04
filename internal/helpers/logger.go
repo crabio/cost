@@ -8,7 +8,7 @@ import (
 	"runtime"
 	"strconv"
 
-	"github.com/iakrevetkho/components-tests/cott/domain"
+	"github.com/iakrevetkho/cost/domain"
 
 	"github.com/robfig/cron"
 	"github.com/sirupsen/logrus"
