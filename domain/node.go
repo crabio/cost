@@ -7,9 +7,3 @@ const (
 	NodeType_Custom    = "custom"
 	NodeType_Component = "component"
 )
-
-type Node struct {
-	Name  string
-	Type  NodeType
-	Model *Model
-}
