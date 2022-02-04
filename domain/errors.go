@@ -8,4 +8,5 @@ var (
 	ERROR_CONVERT_CONFIG_TO_JSON = errors.New("couldn't conver config to JSON")
 	ERROR_INIT_LOGGER            = errors.New("couldn't init logger")
 	ERROR_PARSE_SCHEME_CONFIG    = errors.New("couldn't parse scheme config")
+	UNKNOWN_NODE_TYPE            = errors.New("unknown node type")
 )

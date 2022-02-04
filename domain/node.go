@@ -7,3 +7,11 @@ const (
 	NodeType_Custom    = "custom"
 	NodeType_Component = "component"
 )
+
+type Node struct {
+	ID    string
+	Name  string
+	Type  NodeType
+	Model *Model
+	Links []Link
+}

@@ -8,6 +8,7 @@ const (
 )
 
 type Model struct {
+	ID   string
 	Name string
 	Type ModelType
 	// TODO Add actions
