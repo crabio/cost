@@ -22,10 +22,9 @@ type SchemeConfig_Node struct {
 
 type SchemeConfig_Link struct {
 	Seq uint `yaml:"seq"`
-	// Parent node id
-	Parent string `yaml:"parent"`
-	// Child node id
-	Child string   `yaml:"child"`
+	// Start and End node id which link connects
+	Start string   `yaml:"start"`
+	End   string   `yaml:"end"`
 	Type  LinkType `yaml:"type"`
 }
 
