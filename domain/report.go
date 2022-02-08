@@ -1,10 +1,7 @@
 package domain
 
 type Report struct {
-	// Nodes report data
-	Nodes map[uint]NodeReport
-	// Links report data
-	Links map[uint]LinkReport
+	Roots []*NodeReport
 }
 
 type NodeReport struct {
@@ -14,6 +11,7 @@ type NodeReport struct {
 	RamUsage float64
 	// Storage usage in bytes
 	StorageUsage float64
+	Links        []*LinkReport
 }
 
 type LinkReport struct {
