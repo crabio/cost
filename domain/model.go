@@ -3,8 +3,7 @@ package domain
 type ModelType uint
 
 const (
-	ModelType_NA ModelType = iota
-	ModelType_Custom
+	ModelType_Custom ModelType = iota
 	ModelType_Client
 	ModelType_MQ
 	ModelType_DB

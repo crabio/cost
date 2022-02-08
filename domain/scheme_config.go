@@ -8,9 +8,9 @@ import (
 )
 
 type SchemeConfig struct {
-	Nodes  map[string]*SchemeConfig_Node `yaml:"nodes"`
-	Links  map[string]*SchemeConfig_Link `yaml:"links"`
-	Models map[string]*Model             `yaml:"models"`
+	Nodes  map[string]SchemeConfig_Node `yaml:"nodes"`
+	Links  map[string]SchemeConfig_Link `yaml:"links"`
+	Models map[string]Model             `yaml:"models"`
 }
 
 type SchemeConfig_Node struct {
@@ -23,9 +23,10 @@ type SchemeConfig_Node struct {
 type SchemeConfig_Link struct {
 	Seq uint `yaml:"seq"`
 	// Start and End node id which link connects
-	Start string   `yaml:"start"`
-	End   string   `yaml:"end"`
-	Type  LinkType `yaml:"type"`
+	Start  string   `yaml:"start"`
+	End    string   `yaml:"end"`
+	Type   LinkType `yaml:"type"`
+	Action Action
 }
 
 func NewSchemeConfigFromYaml(filePath string) (*SchemeConfig, error) {
@@ -52,14 +53,14 @@ func (c *SchemeConfig) ToScheme() (*Scheme, error) {
 	// Create map with all nodes
 	// Key - ID
 	// Value - Node
-	nodesMap := make(map[string]*Node)
+	nodesMap := make(map[string]Node)
 	// Create map with root nodes
 	// Key - ID
 	// Value - struct
 	rootNodesMap := make(map[string]struct{})
 	for id, node := range c.Nodes {
 		logrus.WithField("node", node).Debug("node")
-		nodesMap[id] = &Node{
+		nodesMap[id] = Node{
 			ID:   id,
 			Name: node.Name,
 			Type: node.Type,
@@ -71,8 +72,8 @@ func (c *SchemeConfig) ToScheme() (*Scheme, error) {
 		logrus.WithFields(logrus.Fields{"id": nodeId, "node": node}).Debug("node")
 		for linkId, link := range c.Links {
 			logrus.WithFields(logrus.Fields{"id": linkId, "link": link}).Debug("link")
-			if link.Parent == nodeId {
-				childNode, ok := nodesMap[link.Child]
+			if link.Start == nodeId {
+				childNode, ok := nodesMap[link.End]
 				if !ok {
 					logrus.WithField("link", link).Warn("unknown child node id")
 				}
@@ -83,7 +84,7 @@ func (c *SchemeConfig) ToScheme() (*Scheme, error) {
 					Child: childNode,
 					Type:  link.Type,
 				})
-			} else if link.Child == nodeId {
+			} else if link.End == nodeId {
 				// Delte node from root nodes
 				delete(rootNodesMap, nodeId)
 			}

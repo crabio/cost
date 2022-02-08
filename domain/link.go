@@ -10,6 +10,6 @@ const (
 type Link struct {
 	ID    string
 	Seq   uint
-	Child *Node
+	Child Node
 	Type  LinkType `yaml:"type"`
 }
