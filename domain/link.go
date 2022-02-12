@@ -8,8 +8,9 @@ const (
 )
 
 type Link struct {
-	ID    string
-	Seq   uint
-	Child Node
-	Type  LinkType `yaml:"type"`
+	ID     string
+	Seq    uint
+	Child  Node
+	Type   LinkType `yaml:"type"`
+	Action Action
 }

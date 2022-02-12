@@ -8,9 +8,9 @@ import (
 )
 
 type SchemeConfig struct {
-	Nodes  map[string]SchemeConfig_Node `yaml:"nodes"`
-	Links  map[string]SchemeConfig_Link `yaml:"links"`
-	Models map[string]Model             `yaml:"models"`
+	Nodes  map[string]SchemeConfig_Node  `yaml:"nodes"`
+	Links  map[string]SchemeConfig_Link  `yaml:"links"`
+	Models map[string]SchemeConfig_Model `yaml:"models"`
 }
 
 type SchemeConfig_Node struct {
@@ -23,10 +23,16 @@ type SchemeConfig_Node struct {
 type SchemeConfig_Link struct {
 	Seq uint `yaml:"seq"`
 	// Start and End node id which link connects
-	Start  string   `yaml:"start"`
-	End    string   `yaml:"end"`
-	Type   LinkType `yaml:"type"`
-	Action Action
+	Start      string   `yaml:"start"`
+	End        string   `yaml:"end"`
+	Type       LinkType `yaml:"type"`
+	ActionName string   `yaml:"action"`
+}
+
+type SchemeConfig_Model struct {
+	Name             string            `yaml:"name"`
+	Type             ModelType         `yaml:"type"`
+	AvailableActions map[string]Action `yaml:"available-actions"`
 }
 
 func NewSchemeConfigFromYaml(filePath string) (*SchemeConfig, error) {

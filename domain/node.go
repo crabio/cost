@@ -12,6 +12,6 @@ type Node struct {
 	ID    string
 	Name  string
 	Type  NodeType
-	Model *Model
+	Model Model
 	Links []Link
 }

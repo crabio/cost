@@ -1,49 +1,23 @@
 package domain
 
-type ModelType uint
-
-const (
-	ModelType_Custom ModelType = iota
-	ModelType_Client
-	ModelType_MQ
-	ModelType_DB
-)
-
 type Model struct {
 	ID               string
 	Name             string
 	Type             ModelType
-	AvailableActions []Action
+	Params           []Model_Param
+	AvailableActions map[string]Action
 }
 
-type Action struct {
-	Name         string
-	Direction    Action_DirectionType
-	Requirements []Requirement
+type ModelType string
+
+const (
+	ModelType_Custom ModelType = "custom"
+	ModelType_Client ModelType = "client"
+	ModelType_MQ     ModelType = "mq"
+	ModelType_DB     ModelType = "db"
+)
+
+type Model_Param struct {
+	Name          string
+	UnitOfMeasure UnitOfMeasure
 }
-
-type Action_DirectionType uint
-
-const (
-	Action_DirectionType_In Action_DirectionType = iota
-	Action_DirectionType_Out
-)
-
-type Requirement struct {
-	ResourceType RequirementResourceType
-	Type         RequirementType
-}
-
-type RequirementResourceType uint
-
-const (
-	RequirementResourceType_CPU RequirementResourceType = iota
-	RequirementResourceType_RAM
-)
-
-type RequirementType uint
-
-const (
-	RequirementType_Once RequirementType = iota
-	RequirementType_PerRequest
-)
