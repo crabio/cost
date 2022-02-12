@@ -83,7 +83,7 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 
 	var chains []*domain.DataFlowChain
 
-	for id, _ := range rootNodesMap {
+	for id := range rootNodesMap {
 		logrus.WithField("id", id).Debug("root node")
 
 		chain := domain.NewDataFlowChain(nil, nodesMap[id], nil, nil)

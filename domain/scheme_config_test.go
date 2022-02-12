@@ -14,5 +14,5 @@ func TestNewSchemeConfigFromYaml(t *testing.T) {
 	require.NoError(t, err)
 	assert.Len(t, sc.Nodes, 6)
 	assert.Len(t, sc.Links, 11)
-	assert.Len(t, sc.Models, 4)
+	assert.Len(t, sc.Models, 5)
 }
