@@ -12,6 +12,18 @@ type Node struct {
 	ID    string
 	Name  string
 	Type  NodeType
-	Model Model
-	Links []Link
+	Model *Model
+	Links []*Link
+}
+
+func NewNode(id string, name string, nodeType NodeType, model *Model, links []*Link) *Node {
+	n := new(Node)
+
+	n.ID = id
+	n.Name = name
+	n.Type = nodeType
+	n.Model = model
+	n.Links = links
+
+	return n
 }

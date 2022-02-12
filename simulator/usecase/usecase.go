@@ -34,7 +34,7 @@ func (suc *simulatorUsecase) Simulate(sc domain.Scheme) (*domain.Report, error) 
 		case domain.NodeType_Client:
 			logrus.Debug("skip consumption calc for Client node")
 		default:
-			return nil, domain.UNKNOWN_NODE_TYPE
+			return nil, domain.ErrUnknownNodeType
 		}
 	}
 

@@ -21,3 +21,15 @@ type Model_Param struct {
 	Name          string        `yaml:"name"`
 	UnitOfMeasure UnitOfMeasure `yaml:"uom"`
 }
+
+func NewModel(id string, name string, modelType ModelType, params []Model_Param, availableActions map[string]Action) *Model {
+	m := new(Model)
+
+	m.ID = id
+	m.Name = name
+	m.Type = modelType
+	m.Params = params
+	m.AvailableActions = availableActions
+
+	return m
+}
