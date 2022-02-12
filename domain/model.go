@@ -18,6 +18,6 @@ const (
 )
 
 type Model_Param struct {
-	Name          string
-	UnitOfMeasure UnitOfMeasure
+	Name          string        `yaml:"name"`
+	UnitOfMeasure UnitOfMeasure `yaml:"uom"`
 }

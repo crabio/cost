@@ -10,21 +10,23 @@ nodes:
   2:
     name: Gateway
     type: custom
+    model: 2
   3:
     name: Kafka
     type: component
-    model: 2
+    model: 3
   4:
     name: Data Lake
     type: custom
+    model: 2
   5:
     name: RabbitMQ
     type: component
-    model: 3
+    model: 4
   6:
     name: DB
     type: component
-    model: 4
+    model: 5
 
 links:
   # Client -> Gateway
@@ -34,7 +36,7 @@ links:
     end: 2
     type: internet
     # TODO request???
-    action: request
+    action: 1
   # Gateway -> Kafka
   2:
     seq: 1
@@ -84,54 +86,21 @@ links:
   9:
     seq: 1
     start: 4
-    end: 5
+    end: 6
     type: internet
     action: 1
-  8:
+  10:
     seq: 2
     start: 4
-    end: 5
+    end: 6
+    type: internet
+    action: 2
+  11:
+    seq: 3
+    start: 4
+    end: 6
     type: internet
     action: 3
-
-
-
-  3:
-    seq: 2
-    parent: 2
-    child: 5
-    type: internet
-    actions:
-      on-init:
-        - connect()
-      on-close:
-        - disconnect()
-      on-msg:
-        - send("device-${device-id}", ${msg})
-  4:
-    seq: 1
-    parent: 4
-    child: 5
-    type: local
-    actions:
-      on-init:
-        - connect()
-        - for every ${clientQty}: subscibe("device-${clientQty-i}", ${msg})
-      on-close:
-        - disconnect()
-  5:
-    seq: 1
-    parent: 4
-    child: 6
-    type: local
-    actions:
-      on-init:
-        - connect()
-      on-close:
-        - disconnect()
-      on-msg:
-        - selectById()
-        - insert(msg)
 
 models:
   1:
@@ -145,6 +114,18 @@ models:
       - name: msg-size
         uom: byte
   2:
+    name: gateway
+    type: custom
+    available-actions:
+      1:
+        name: request
+        direction: in
+        requirements:
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 100000
+  3:
     name: kafka:3.1.0
     type: mq
     available-actions:
@@ -212,7 +193,7 @@ models:
             type: once
             uom: byte
             value: 10000
-  3:
+  4:
     name: rabbitmq
     type: mq
     available-actions:
@@ -280,7 +261,7 @@ models:
             type: once
             uom: byte
             value: 10000
-  4:
+  5:
     name: postgres:10
     type: db
     available-actions:
