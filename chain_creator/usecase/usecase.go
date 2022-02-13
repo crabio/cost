@@ -33,9 +33,8 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 		model, ok := sc.Models[node.Model]
 		if !ok {
 			logrus.WithField("node", node).Warn(domain.ErrUnknownModel)
+			continue
 		}
-
-		logrus.WithField("node", node).Debug("node")
 
 		nodeModel := domain.NewModel(node.Model, model.Name, model.Type, model.Params, model.AvailableActions)
 
@@ -49,8 +48,6 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 	}
 
 	for linkId, link := range sc.Links {
-		logrus.WithFields(logrus.Fields{"id": linkId, "link": link}).Debug("link")
-
 		startNode, ok := nodesMap[link.Start]
 		if !ok {
 			logrus.WithField("link", link).Error(domain.ErrUnknownNodeId)
@@ -65,7 +62,6 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 
 		action, ok := endNode.Model.AvailableActions[link.ActionName]
 		if !ok {
-			logrus.WithFields(logrus.Fields{"endNode": endNode, "link": link, "model": endNode.Model}).Error(domain.ErrUnknownModelAction)
 			return nil, domain.ErrUnknownModelAction
 		}
 
@@ -74,13 +70,11 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 			startNode.Links = append(startNode.Links, domain.NewLink(linkId, link.Seq, endNode, link.Type, &action))
 			// Node is root if it has at least 1 out link (in for another component)
 			delete(rootNodesMap, endNode.ID)
-			logrus.WithFields(logrus.Fields{"action": action, "node": endNode}).Debug("delete root node")
 
 		case domain.Action_DirectionType_Out:
 			endNode.Links = append(endNode.Links, domain.NewLink(linkId, link.Seq, startNode, link.Type, &action))
 			// Node is root if it has at least 1 out link (in for another component)
 			delete(rootNodesMap, startNode.ID)
-			logrus.WithFields(logrus.Fields{"action": action, "node": startNode}).Debug("delete root node")
 
 		default:
 			logrus.WithField("direction", action.Direction).Error(domain.ErrUnknownActionDirection)
@@ -91,8 +85,6 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 	var rootNodes []*domain.Node
 
 	for id := range rootNodesMap {
-		logrus.WithField("id", id).Debug("root node")
-
 		rootNodes = append(rootNodes, nodesMap[id])
 	}
 
@@ -112,9 +104,8 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 		model, ok := sc.Models[node.Model]
 		if !ok {
 			logrus.WithField("node", node).Warn(domain.ErrUnknownModel)
+			continue
 		}
-
-		logrus.WithField("node", node).Debug("node")
 
 		nodeModel := domain.NewModel(node.Model, model.Name, model.Type, model.Params, model.AvailableActions)
 
@@ -124,8 +115,6 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 	}
 
 	for linkId, link := range sc.Links {
-		logrus.WithFields(logrus.Fields{"id": linkId, "link": link}).Debug("link")
-
 		startNode, ok := nodesMap[link.Start]
 		if !ok {
 			logrus.WithField("link", link).Error(domain.ErrUnknownNodeId)
@@ -149,13 +138,11 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 			startNode.Links = append(startNode.Links, domain.NewLink(linkId, link.Seq, endNode, link.Type, &action))
 			// Node is root if it has at least 1 out link (in for another component)
 			delete(rootNodesMap, endNode.ID)
-			logrus.WithFields(logrus.Fields{"action": action, "node": endNode}).Debug("delete root node")
 
 		case domain.Action_DirectionType_Out:
 			endNode.Links = append(endNode.Links, domain.NewLink(linkId, link.Seq, startNode, link.Type, &action))
 			// Node is root if it has at least 1 out link (in for another component)
 			delete(rootNodesMap, startNode.ID)
-			logrus.WithFields(logrus.Fields{"action": action, "node": startNode}).Debug("delete root node")
 
 		default:
 			logrus.WithField("direction", action.Direction).Error(domain.ErrUnknownActionDirection)
@@ -166,8 +153,6 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 	var chains []*domain.DataFlowChainBlock
 
 	for id := range rootNodesMap {
-		logrus.WithField("id", id).Debug("root node")
-
 		chain := domain.NewDataFlowChainBlock(nil, nodesMap[id], nil, nil)
 
 		// node, ok := nodesMap[id]

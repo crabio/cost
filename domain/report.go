@@ -8,5 +8,9 @@ type Report struct {
 }
 
 func NewReport() *Report {
-	return new(Report)
+	r := new(Report)
+
+	r.NodeReports = make(map[string]*NodeReport)
+
+	return r
 }

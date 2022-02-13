@@ -34,12 +34,18 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	}
 
 	// 3. Requests flows gradient descent
+
+	// Links set required to prevent infinite loops
+	linksSet := make(map[*domain.Link]struct{})
+
 	for _, n := range clients {
-		suc.requestsFlowGradientDescent(nodesSimulations, n, nil)
+		suc.requestsFlowGradientDescent(nodesSimulations, linksSet, n, nil)
 	}
 
 	// 4. Go through all nodes and calc consumption
-	for _, ns := range nodesSimulations {
+	r := domain.NewReport()
+
+	for id, ns := range nodesSimulations {
 		for rf, as := range ns.RequestsFlows {
 			for _, a := range as {
 				for _, r := range a.Requirements {
@@ -51,12 +57,14 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 				}
 			}
 		}
+
+		r.NodeReports[id] = domain.NewNodeReport(ns.Requirements)
 	}
 
-	return domain.NewReport(), nil
+	return r, nil
 }
 
-func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, n *domain.Node, inrfs map[*domain.RequestsFlow][]*domain.Action) {
+func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, ls map[*domain.Link]struct{}, n *domain.Node, inrfs map[*domain.RequestsFlow][]*domain.Action) {
 	// Add input requests flows
 	ns[n.ID].RequestsFlows = inrfs
 
@@ -75,6 +83,10 @@ func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.N
 
 	// Go to children
 	for _, link := range n.Links {
-		suc.requestsFlowGradientDescent(ns, link.Child, outrfs)
+		// Check that link wasn't checked
+		if _, ok := ls[link]; !ok {
+			ls[link] = struct{}{}
+			suc.requestsFlowGradientDescent(ns, ls, link.Child, outrfs)
+		}
 	}
 }

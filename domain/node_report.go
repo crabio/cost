@@ -1,10 +1,10 @@
 package domain
 
 type NodeReport struct {
-	Requirements []*Requirement
+	Requirements map[ResourceType]float64
 }
 
-func NewNodeReport(requirements []*Requirement) *NodeReport {
+func NewNodeReport(requirements map[ResourceType]float64) *NodeReport {
 	r := new(NodeReport)
 
 	r.Requirements = requirements

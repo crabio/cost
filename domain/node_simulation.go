@@ -9,5 +9,10 @@ type NodeSimulation struct {
 }
 
 func NewNodeSimulation() *NodeSimulation {
-	return new(NodeSimulation)
+	ns := new(NodeSimulation)
+
+	ns.RequestsFlows = make(map[*RequestsFlow][]*Action)
+	ns.Requirements = make(map[ResourceType]float64)
+
+	return ns
 }
