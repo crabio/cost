@@ -3,7 +3,6 @@ package usecase
 import (
 	chain_creator_usecase "github.com/iakrevetkho/cost/chain_creator/usecase"
 	"github.com/iakrevetkho/cost/domain"
-	"github.com/sirupsen/logrus"
 )
 
 type SimulatorUsecase interface {
@@ -35,29 +34,24 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	}
 
 	// 3. Requests flows gradient descent
-	for _, node := range clients {
-		if node.RequestsFlow != nil {
-			r.NodeReports[node.ID].RequestsFlows = append(r.NodeReports[node.ID].RequestsFlows, node.RequestsFlow)
-		}
-	}
-
-	// 1. Calc base consumption
-	for _, node := range sc.Roots {
-		switch node.Type {
-		case domain.NodeType_Component:
-			r.Roots = append(r.Roots, &domain.NodeReport{
-				CpuUsage: node.Model,
-			})
-
-		case domain.NodeType_Custom:
-			// TODO Implement
-			logrus.Debug("skip consumption calc for Custom node")
-		case domain.NodeType_Client:
-			logrus.Debug("skip consumption calc for Client node")
-		default:
-			return nil, domain.ErrUnknownNodeType
-		}
+	for _, n := range clients {
+		suc.requestsFlowGradientDescent(r, n, nil)
 	}
 
 	return r, nil
+}
+
+func (suc *simulatorUsecase) requestsFlowGradientDescent(r *domain.Report, n *domain.Node, prfs []*domain.RequestsFlow) {
+	// Add self requests flows
+	if n.RequestsFlow != nil {
+		r.NodeReports[n.ID].RequestsFlows = append(r.NodeReports[n.ID].RequestsFlows, n.RequestsFlow)
+	}
+
+	// Add parents requests flows
+	r.NodeReports[n.ID].RequestsFlows = append(r.NodeReports[n.ID].RequestsFlows, prfs...)
+
+	// Go to children
+	for _, link := range n.Links {
+		suc.requestsFlowGradientDescent(r, link.Child, r.NodeReports[n.ID].RequestsFlows)
+	}
 }
