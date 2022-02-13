@@ -1,8 +1,8 @@
 package domain
 
 type NodeReport struct {
-	RequestsFlow *RequestsFlow
-	Requirements []*Requirement
+	RequestsFlows []*RequestsFlow
+	Requirements  []*Requirement
 }
 
 func NewNodeReport() *NodeReport {

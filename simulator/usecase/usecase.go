@@ -23,14 +23,22 @@ func NewSimulatorUsecase(ccuc chain_creator_usecase.ChainCreatorUsecase) Simulat
 func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, error) {
 	r := domain.NewReport()
 
-	// 1. Search all clients
+	// 1. Create empty report for each node
+	for id := range sc.Nodes {
+		r.NodeReports[id] = domain.NewNodeReport()
+	}
+
+	// 2. Search all clients
 	clients, err := suc.ccuc.CreateNodesChains(sc)
 	if err != nil {
 		return nil, err
 	}
 
+	// 3. Requests flows gradient descent
 	for _, node := range clients {
-
+		if node.RequestsFlow != nil {
+			r.NodeReports[node.ID].RequestsFlows = append(r.NodeReports[node.ID].RequestsFlows, node.RequestsFlow)
+		}
 	}
 
 	// 1. Calc base consumption
