@@ -37,17 +37,15 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	// 3. Requests flows gradient descent
 
 	// Links set required to prevent infinite loops
-	linksSet := make(map[*domain.Link]struct{})
-
 	for _, n := range clients {
-		suc.requestsFlowGradientDescent(nodesSimulations, linksSet, n, nil)
+		suc.requestsFlowGradientDescent(nodesSimulations, nil, n, nil, nil)
 	}
 
 	// 4. Go through all nodes and calc consumption
 	r := domain.NewReport()
 
 	for id, ns := range nodesSimulations {
-		for rf, as := range ns.RequestsFlows {
+		for rf, as := range ns.ActionsFlows {
 			for _, a := range as {
 				for _, r := range a.Requirements {
 					value, err := r.Calc(rf)
@@ -71,32 +69,24 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	return r, nil
 }
 
-func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, ls map[*domain.Link]struct{}, n *domain.Node, inrfs map[*domain.RequestsFlow][]*domain.Action) {
-	// Add input requests flows
-	ns[n.ID].RequestsFlows = inrfs
-
-	// Create map with request flows for next nodes
-	outrfs := make(map[*domain.RequestsFlow][]*domain.Action)
-
-	// Translate input requests forward
-	for rf := range inrfs {
-		for _, link := range n.Links {
-			if outrf, ok := outrfs[rf]; ok {
-				outrf = append(outrf, link.Action)
-			} else {
-				outrfs[rf] = []*domain.Action{link.Action}
-			}
-		}
+func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, ls map[*domain.Link]struct{}, n *domain.Node, inrfs []*domain.RequestsFlow, ina *domain.Action) {
+	if ls == nil {
+		ls = make(map[*domain.Link]struct{})
 	}
 
-	// Add this node requests to children
+	// Add input requests flow
+	ns[n.ID].RequestsFlows = inrfs
+	// Add nodes requests flow to overall if has
 	if n.RequestsFlow != nil {
-		for _, link := range n.Links {
-			if outrf, ok := outrfs[n.RequestsFlow]; ok {
-				outrf = append(outrf, link.Action)
-			} else {
-				outrfs[n.RequestsFlow] = []*domain.Action{link.Action}
-			}
+		ns[n.ID].RequestsFlows = append(ns[n.ID].RequestsFlows, n.RequestsFlow)
+	}
+
+	// Add actions for current node multiplied on inpur requests flow
+	for _, rf := range inrfs {
+		if af, ok := ns[n.ID].ActionsFlows[rf]; ok {
+			af = append(af, ina)
+		} else {
+			ns[n.ID].ActionsFlows[rf] = []*domain.Action{ina}
 		}
 	}
 
@@ -105,7 +95,8 @@ func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.N
 		// Check that link wasn't checked
 		if _, ok := ls[link]; !ok {
 			ls[link] = struct{}{}
-			suc.requestsFlowGradientDescent(ns, ls, link.Child, outrfs)
+			logrus.WithFields(logrus.Fields{"node": n, "child": link.Child}).Debug("go to child")
+			suc.requestsFlowGradientDescent(ns, ls, link.Child, ns[n.ID].RequestsFlows, link.Action)
 		}
 	}
 }

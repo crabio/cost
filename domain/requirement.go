@@ -1,6 +1,11 @@
 package domain
 
-import "github.com/sirupsen/logrus"
+import (
+	"bytes"
+	"strconv"
+
+	"github.com/sirupsen/logrus"
+)
 
 type Requirement struct {
 	Resource ResourceType    `yaml:"resource"`
@@ -16,7 +21,7 @@ const (
 	RequirementType_PerRequestByte RequirementType = "per-request-byte"
 )
 
-func (r Requirement) Calc(rf *RequestsFlow) (float64, error) {
+func (r *Requirement) Calc(rf *RequestsFlow) (float64, error) {
 	if rf == nil {
 		return 0, ErrNilRequirement
 	}
@@ -35,4 +40,19 @@ func (r Requirement) Calc(rf *RequestsFlow) (float64, error) {
 		logrus.WithField("type", r.Type).Error(ErrUnknownRequirementType)
 		return 0, ErrUnknownRequirementType
 	}
+}
+
+func (r *Requirement) String() string {
+	var buf bytes.Buffer
+
+	buf.WriteByte('{')
+	buf.WriteString("resource: ")
+	buf.WriteString(string(r.Resource))
+	buf.WriteString(", type: ")
+	buf.WriteString(string(r.Type))
+	buf.WriteString(", value: ")
+	buf.WriteString(strconv.FormatFloat(r.Value, 'e', -1, 64))
+	buf.WriteString("}")
+
+	return buf.String()
 }

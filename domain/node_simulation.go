@@ -1,7 +1,10 @@
 package domain
 
 type NodeSimulation struct {
-	RequestsFlows map[*RequestsFlow][]*Action
+	// Requests flows
+	RequestsFlows []*RequestsFlow
+	// Map with actions on node
+	ActionsFlows map[*RequestsFlow][]*Action
 	// Map with requirements
 	// Key - resource type
 	// Value - value
@@ -11,7 +14,7 @@ type NodeSimulation struct {
 func NewNodeSimulation() *NodeSimulation {
 	ns := new(NodeSimulation)
 
-	ns.RequestsFlows = make(map[*RequestsFlow][]*Action)
+	ns.ActionsFlows = make(map[*RequestsFlow][]*Action)
 	ns.Requirements = make(map[ResourceType]float64)
 
 	return ns
