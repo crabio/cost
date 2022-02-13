@@ -13,4 +13,6 @@ var (
 	ErrUnknownActionDirection = errors.New("unknown action direction")
 	ErrUnknownModel           = errors.New("unknown model")
 	ErrUnknownModelAction     = errors.New("unknown model's action")
+	ErrUnknownRequirementType = errors.New("unknown requirements's type")
+	ErrUnknownResourceType    = errors.New("unknown resource's type")
 )

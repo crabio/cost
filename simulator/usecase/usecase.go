@@ -38,6 +38,21 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 		suc.requestsFlowGradientDescent(nodesSimulations, n, nil)
 	}
 
+	// 4. Go through all nodes and calc consumption
+	for _, ns := range nodesSimulations {
+		for rf, as := range ns.RequestsFlows {
+			for _, a := range as {
+				for _, r := range a.Requirements {
+					if nsr, ok := ns.Requirements[r.Resource]; ok {
+						ns.Requirements[r.Resource] = r.Resource.Sum(nsr, r.Calc(rf))
+					} else {
+						ns.Requirements[r.Resource] = r.Calc(rf)
+					}
+				}
+			}
+		}
+	}
+
 	return domain.NewReport(), nil
 }
 
