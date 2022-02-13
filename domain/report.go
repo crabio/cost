@@ -7,10 +7,6 @@ type Report struct {
 	NodeReports map[string]*NodeReport
 }
 
-type NodeReport struct {
-	Requirements []*Requirement
-}
-
 func NewReport() *Report {
 	return new(Report)
 }

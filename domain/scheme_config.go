@@ -16,8 +16,9 @@ type SchemeConfig_Node struct {
 	Name string   `yaml:"name"`
 	Type NodeType `yaml:"type"`
 	// Model id
-	Model  string             `yaml:"model"`
-	Params map[string]float64 `yaml:"params"`
+	Model string `yaml:"model"`
+	// Could be specified only for Client node
+	RequestsFlow *RequestsFlow `yaml:"requests"`
 }
 
 type SchemeConfig_Link struct {

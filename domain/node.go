@@ -5,9 +5,9 @@ import "sort"
 type NodeType string
 
 const (
-	NodeType_Client    = "client"
-	NodeType_Custom    = "custom"
-	NodeType_Component = "component"
+	NodeType_Client    NodeType = "client"
+	NodeType_Custom    NodeType = "custom"
+	NodeType_Component NodeType = "component"
 )
 
 type Node struct {
@@ -16,6 +16,9 @@ type Node struct {
 	Type  NodeType
 	Model *Model
 	Links []*Link
+
+	// Specified only for client node
+	RequestsFlow *RequestsFlow
 }
 
 func NewNode(id string, name string, nodeType NodeType, model *Model, links []*Link) *Node {
@@ -31,6 +34,14 @@ func NewNode(id string, name string, nodeType NodeType, model *Model, links []*L
 	sort.Slice(n.Links, func(i, j int) bool {
 		return n.Links[i].Seq < n.Links[j].Seq
 	})
+
+	return n
+}
+
+func NewClientNode(id string, name string, nodeType NodeType, model *Model, links []*Link, requestsFlow *RequestsFlow) *Node {
+	n := NewNode(id, name, nodeType, model, links)
+
+	n.RequestsFlow = requestsFlow
 
 	return n
 }

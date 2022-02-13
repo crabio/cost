@@ -3,9 +3,9 @@ nodes:
     name: Client
     type: client
     model: 1
-    params:
+    requests:
       qty: 10
-      period: 1
+      period-ms: 1000
       msg-size: 10000
   2:
     name: Gateway
