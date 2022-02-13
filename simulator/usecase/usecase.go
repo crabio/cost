@@ -38,7 +38,7 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 
 	// Links set required to prevent infinite loops
 	for _, n := range clients {
-		suc.requestsFlowGradientDescent(nodesSimulations, nil, n, nil, nil)
+		suc.requestsFlowGradientDescent(nodesSimulations, nil, nil, n, nil, nil)
 	}
 
 	// 4. Go through all nodes and calc consumption
@@ -69,34 +69,51 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	return r, nil
 }
 
-func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, ls map[*domain.Link]struct{}, n *domain.Node, inrfs []*domain.RequestsFlow, ina *domain.Action) {
+func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, ls map[*domain.Link]struct{}, parentNode, node *domain.Node, inrfs []*domain.RequestsFlow, ina *domain.Action) {
 	if ls == nil {
 		ls = make(map[*domain.Link]struct{})
 	}
 
 	// Add input requests flow
-	ns[n.ID].RequestsFlows = inrfs
+	ns[node.ID].RequestsFlows = inrfs
 	// Add nodes requests flow to overall if has
-	if n.RequestsFlow != nil {
-		ns[n.ID].RequestsFlows = append(ns[n.ID].RequestsFlows, n.RequestsFlow)
+	if node.RequestsFlow != nil {
+		ns[node.ID].RequestsFlows = append(ns[node.ID].RequestsFlows, node.RequestsFlow)
 	}
 
 	// Add actions for current node multiplied on inpur requests flow
-	for _, rf := range inrfs {
-		if af, ok := ns[n.ID].ActionsFlows[rf]; ok {
-			af = append(af, ina)
-		} else {
-			ns[n.ID].ActionsFlows[rf] = []*domain.Action{ina}
+	if ina != nil {
+		switch ina.Direction {
+		case domain.Action_DirectionType_In:
+			for _, rf := range inrfs {
+				if af, ok := ns[node.ID].ActionsFlows[rf]; ok {
+					af = append(af, ina)
+				} else {
+					ns[node.ID].ActionsFlows[rf] = []*domain.Action{ina}
+				}
+			}
+
+		case domain.Action_DirectionType_Out:
+			for _, rf := range inrfs {
+				if af, ok := ns[parentNode.ID].ActionsFlows[rf]; ok {
+					af = append(af, ina)
+				} else {
+					ns[parentNode.ID].ActionsFlows[rf] = []*domain.Action{ina}
+				}
+			}
+
+		default:
+			logrus.WithField("direction", ina.Direction).Error(domain.ErrUnknownActionDirection)
+			return
 		}
 	}
 
 	// Go to children
-	for _, link := range n.Links {
+	for _, link := range node.Links {
 		// Check that link wasn't checked
 		if _, ok := ls[link]; !ok {
 			ls[link] = struct{}{}
-			logrus.WithFields(logrus.Fields{"node": n, "child": link.Child}).Debug("go to child")
-			suc.requestsFlowGradientDescent(ns, ls, link.Child, ns[n.ID].RequestsFlows, link.Action)
+			suc.requestsFlowGradientDescent(ns, ls, node, link.Child, ns[node.ID].RequestsFlows, link.Action)
 		}
 	}
 }
