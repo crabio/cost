@@ -1,10 +1,13 @@
 package domain
 
 type NodeReport struct {
-	RequestsFlows []*RequestsFlow
-	Requirements  []*Requirement
+	Requirements []*Requirement
 }
 
-func NewNodeReport() *NodeReport {
-	return new(NodeReport)
+func NewNodeReport(requirements []*Requirement) *NodeReport {
+	r := new(NodeReport)
+
+	r.Requirements = requirements
+
+	return r
 }

@@ -39,7 +39,11 @@ func (ccuc *chainCreatorUsecase) CreateNodesChains(sc *domain.SchemeConfig) ([]*
 
 		nodeModel := domain.NewModel(node.Model, model.Name, model.Type, model.Params, model.AvailableActions)
 
-		nodesMap[id] = domain.NewNode(id, node.Name, node.Type, nodeModel, []*domain.Link{})
+		if node.Type == domain.NodeType_Client {
+			nodesMap[id] = domain.NewClientNode(id, node.Name, node.Type, nodeModel, []*domain.Link{}, node.RequestsFlow)
+		} else {
+			nodesMap[id] = domain.NewNode(id, node.Name, node.Type, nodeModel, []*domain.Link{})
+		}
 
 		rootNodesMap[id] = struct{}{}
 	}

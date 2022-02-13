@@ -20,11 +20,11 @@ func NewSimulatorUsecase(ccuc chain_creator_usecase.ChainCreatorUsecase) Simulat
 }
 
 func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, error) {
-	r := domain.NewReport()
+	nodesSimulations := make(map[string]*domain.NodeSimulation)
 
 	// 1. Create empty report for each node
 	for id := range sc.Nodes {
-		r.NodeReports[id] = domain.NewNodeReport()
+		nodesSimulations[id] = domain.NewNodeSimulation()
 	}
 
 	// 2. Search all clients
@@ -35,23 +35,31 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 
 	// 3. Requests flows gradient descent
 	for _, n := range clients {
-		suc.requestsFlowGradientDescent(r, n, nil)
+		suc.requestsFlowGradientDescent(nodesSimulations, n, nil)
 	}
 
-	return r, nil
+	return domain.NewReport(), nil
 }
 
-func (suc *simulatorUsecase) requestsFlowGradientDescent(r *domain.Report, n *domain.Node, prfs []*domain.RequestsFlow) {
-	// Add self requests flows
-	if n.RequestsFlow != nil {
-		r.NodeReports[n.ID].RequestsFlows = append(r.NodeReports[n.ID].RequestsFlows, n.RequestsFlow)
-	}
+func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.NodeSimulation, n *domain.Node, inrfs map[*domain.RequestsFlow][]*domain.Action) {
+	// Add input requests flows
+	ns[n.ID].RequestsFlows = inrfs
 
-	// Add parents requests flows
-	r.NodeReports[n.ID].RequestsFlows = append(r.NodeReports[n.ID].RequestsFlows, prfs...)
+	// Create map with request flows for next nodes
+	outrfs := make(map[*domain.RequestsFlow][]*domain.Action)
+
+	for rf := range inrfs {
+		for _, link := range n.Links {
+			if outrf, ok := outrfs[rf]; ok {
+				outrf = append(outrf, link.Action)
+			} else {
+				outrfs[rf] = []*domain.Action{link.Action}
+			}
+		}
+	}
 
 	// Go to children
 	for _, link := range n.Links {
-		suc.requestsFlowGradientDescent(r, link.Child, r.NodeReports[n.ID].RequestsFlows)
+		suc.requestsFlowGradientDescent(ns, link.Child, outrfs)
 	}
 }
