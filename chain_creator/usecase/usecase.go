@@ -190,9 +190,8 @@ func (ccuc *chainCreatorUsecase) CreateChain(node *domain.Node, prev *domain.Dat
 			block := domain.NewDataFlowChainBlock(prev, node, link.Child, link)
 
 			return ccuc.CreateChain(node, block)
-		} else {
-			// TODO
 		}
+		// TODO Else
 	}
 	return nil, nil
 }
