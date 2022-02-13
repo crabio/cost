@@ -150,7 +150,7 @@ models:
         direction: in
         requirements:
           - resource: cpu
-            type: once
+            type: per-request
             uom: ops
             value: 100000
           - resource: network-receive

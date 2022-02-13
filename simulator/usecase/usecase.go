@@ -47,6 +47,9 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 	for id, ns := range nodesSimulations {
 		for rf, as := range ns.ActionsFlows {
 			for _, a := range as {
+				if id == "3" {
+					logrus.WithField("action", a).Debug("calc action")
+				}
 				for _, r := range a.Requirements {
 					value, err := r.Calc(rf)
 					if err != nil {
@@ -87,7 +90,7 @@ func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.N
 		case domain.Action_DirectionType_In:
 			for _, rf := range inrfs {
 				if af, ok := ns[node.ID].ActionsFlows[rf]; ok {
-					af = append(af, ina)
+					ns[node.ID].ActionsFlows[rf] = append(af, ina)
 				} else {
 					ns[node.ID].ActionsFlows[rf] = []*domain.Action{ina}
 				}
@@ -96,7 +99,7 @@ func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.N
 		case domain.Action_DirectionType_Out:
 			for _, rf := range inrfs {
 				if af, ok := ns[parentNode.ID].ActionsFlows[rf]; ok {
-					af = append(af, ina)
+					ns[parentNode.ID].ActionsFlows[rf] = append(af, ina)
 				} else {
 					ns[parentNode.ID].ActionsFlows[rf] = []*domain.Action{ina}
 				}
