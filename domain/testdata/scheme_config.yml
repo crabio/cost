@@ -1,0 +1,331 @@
+nodes:
+  1:
+    name: Client
+    type: client
+    model: 1
+    requests:
+      qty: 10
+      period-ms: 1000
+      msg-size: 10000
+  2:
+    name: Gateway
+    type: custom
+    model: 2
+  3:
+    name: Kafka
+    type: component
+    model: 3
+  4:
+    name: Data Lake
+    type: custom
+    model: 2
+  5:
+    name: RabbitMQ
+    type: component
+    model: 4
+  6:
+    name: DB
+    type: component
+    model: 5
+
+links:
+  # Client -> Gateway
+  1:
+    seq: 1
+    start: 1
+    end: 2
+    type: internet
+    # TODO request???
+    action: 1
+  # Gateway -> Kafka
+  2:
+    seq: 1
+    start: 2
+    end: 3
+    type: local
+    action: 1
+  3:
+    seq: 2
+    start: 2
+    end: 3
+    type: local
+    action: 2
+  4:
+    seq: 3
+    start: 2
+    end: 3
+    type: local
+    action: 3
+  # Gateway -> RabbitMQ
+  5:
+    seq: 1
+    start: 2
+    end: 5
+    type: internet
+    action: 1
+  6:
+    seq: 2
+    start: 2
+    end: 5
+    type: internet
+    action: 2
+  # Data Lake -> RabbitMQ
+  7:
+    seq: 1
+    start: 4
+    end: 5
+    type: internet
+    action: 1
+  8:
+    seq: 2
+    start: 4
+    end: 5
+    type: internet
+    action: 3
+  # Data Lake -> PostgreSQL
+  9:
+    seq: 1
+    start: 4
+    end: 6
+    type: internet
+    action: 1
+  10:
+    seq: 2
+    start: 4
+    end: 6
+    type: internet
+    action: 2
+  11:
+    seq: 3
+    start: 4
+    end: 6
+    type: internet
+    action: 3
+
+models:
+  1:
+    name: client
+    type: client
+    params:
+      - name: qty
+        uom: piece
+      - name: period
+        uom: minute
+      - name: msg-size
+        uom: byte
+  2:
+    name: gateway
+    type: custom
+    available-actions:
+      1:
+        name: request
+        direction: in
+        requirements:
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 100000
+  3:
+    name: kafka:3.1.0
+    type: mq
+    available-actions:
+      1:
+        name: connect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000
+      2:
+        name: send
+        direction: in
+        requirements:
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 100000
+          - resource: network-receive
+            type: per-request-byte
+            uom: byte
+            value: 1
+          - resource: storage-write
+            type: per-request-byte
+            uom: byte
+            value: 1
+      3:
+        name: receive
+        direction: out
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 200000
+          - resource: network-send
+            type: per-request-byte
+            uom: byte
+            value: 1
+      4:
+        name: disconnect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000
+  4:
+    name: rabbitmq
+    type: mq
+    available-actions:
+      1:
+        name: connect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000
+      2:
+        name: send
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: network-receive
+            type: per-request-byte
+            uom: byte
+            value: 1
+          - resource: storage-write
+            type: per-request-byte
+            uom: byte
+            value: 1
+      3:
+        name: receive
+        direction: out
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 200000
+          - resource: network-send
+            type: per-request-byte
+            uom: byte
+            value: 1
+      4:
+        name: disconnect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000
+  5:
+    name: postgres:10
+    type: db
+    available-actions:
+      1:
+        name: connect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000
+      2:
+        name: selectById
+        direction: in
+        requirements:
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 100000
+          - resource: network-send
+            type: per-request
+            uom: byte
+            value: 1000
+          - resource: storage-read
+            type: per-request
+            uom: byte
+            value: 1000
+      3:
+        name: insert
+        direction: in
+        requirements:
+          - resource: cpu
+            type: per-request
+            uom: ops
+            value: 200000
+          - resource: storage-write
+            type: per-request-byte
+            uom: byte
+            value: 1
+          - resource: network-receive
+            type: per-request-byte
+            uom: byte
+            value: 1
+      4:
+        name: disconnect
+        direction: in
+        requirements:
+          - resource: cpu
+            type: once
+            uom: ops
+            value: 100000
+          - resource: ram
+            type: once
+            uom: byte
+            value: 10000
+          - resource: network-receive
+            type: once
+            uom: byte
+            value: 10000

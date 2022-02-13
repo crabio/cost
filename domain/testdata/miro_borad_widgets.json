@@ -1,0 +1,1870 @@
+{
+    "type": "collection",
+    "data": [
+        {
+            "id": "3458764518461194537",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect() - 0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>send(topic, msg) - 0.1Mops &#43; 0.2Mops/kB</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>subscribe(topic) - 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>cleanUp(ttl) - 0.1Mops/msg (internal process)</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect() - 0.05Mops</li></ol>",
+            "x": 1276.5040063045,
+            "y": 94.8524359195017,
+            "width": 396.975983541913,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194538",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>MQ model</p>",
+            "x": 656.522253541501,
+            "y": 94.8524359195017,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194539",
+            "startWidget": {
+                "id": "3458764518461194537"
+            },
+            "endWidget": {
+                "id": "3458764518461194538"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194540",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>kafka</p>",
+            "x": 324.955678487302,
+            "y": 94.8524359195017,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194541",
+            "startWidget": {
+                "id": "3458764518461194538"
+            },
+            "endWidget": {
+                "id": "3458764518461194540"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194542",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#fac710",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>gateway</p>",
+            "x": -1028.6450265302,
+            "y": -229.485591309698,
+            "width": 209.084911558691,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194543",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#cee741",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>client</p>",
+            "x": -1587.7568130725,
+            "y": -229.485591309698,
+            "width": 146.514651548069,
+            "height": 92.7018090541546,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194544",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#fac710",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>data lake</p>",
+            "x": -1028.6450265302,
+            "y": -1422.3411438488,
+            "width": 209.084911558691,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194545",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>postgres</p>",
+            "x": 324.759273708602,
+            "y": -1744.1758872127,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194546",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect()</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>for every ${clientQty}: subscibe(&#34;device-${clientQty-i}&#34;, ${msg})</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect()</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>send(&#34;device-${device-id}&#34;, ${msg})</li></ol>",
+            "x": -337.3883665719,
+            "y": 94.8524359195017,
+            "width": 306.648781338424,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194547",
+            "startWidget": {
+                "id": "3458764518461194542"
+            },
+            "endWidget": {
+                "id": "3458764518461194546"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194548",
+            "startWidget": {
+                "id": "3458764518461194546"
+            },
+            "endWidget": {
+                "id": "3458764518461194540"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194549",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect()</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>for every ${clientQty}: subscibe(&#34;device-${clientQty-i}&#34;, ${msg})</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect()</li></ol>",
+            "x": -342.5844954522,
+            "y": -1110.890172927,
+            "width": 312.44248409131,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194550",
+            "startWidget": {
+                "id": "3458764518461194544"
+            },
+            "endWidget": {
+                "id": "3458764518461194549"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194551",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<p>clientQty&#61;10</p>",
+            "x": -1804.007222114,
+            "y": -229.485591309698,
+            "width": 83.66,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194552",
+            "startWidget": {
+                "id": "3458764518461194551"
+            },
+            "endWidget": {
+                "id": "3458764518461194543"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194553",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>10 req/min</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>msgSize &#61; 1kB</li></ol>",
+            "x": -1323.9994872985,
+            "y": -229.485591309698,
+            "width": 120.170726504683,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194554",
+            "startWidget": {
+                "id": "3458764518461194543"
+            },
+            "endWidget": {
+                "id": "3458764518461194553"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194555",
+            "startWidget": {
+                "id": "3458764518461194553"
+            },
+            "endWidget": {
+                "id": "3458764518461194542"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194556",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect()</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect()</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>selectById()</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>insert(msg)</li></ol>",
+            "x": -342.5844954522,
+            "y": -1744.1758872127,
+            "width": 312.44248409131,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194557",
+            "startWidget": {
+                "id": "3458764518461194544"
+            },
+            "endWidget": {
+                "id": "3458764518461194556"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194558",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>rabbit MQ</p>",
+            "x": 324.7274820612,
+            "y": -819.747315784098,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194559",
+            "startWidget": {
+                "id": "3458764518461194549"
+            },
+            "endWidget": {
+                "id": "3458764518461194558"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194560",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect() - 0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>sendMsg(topic, msg) - 0.1Mops &#43; 0.2Mops/kB</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>subscribe(topic) - 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>cleanUp(ttl) - 0.1Mops/msg (internal process)</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect() - 0.05Mops</li></ol>",
+            "x": 1276.3899080914,
+            "y": -819.747315784098,
+            "width": 397.101111248862,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194561",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>MQ model</p>",
+            "x": 656.294057115501,
+            "y": -819.747315784098,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194562",
+            "startWidget": {
+                "id": "3458764518461194560"
+            },
+            "endWidget": {
+                "id": "3458764518461194561"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194563",
+            "startWidget": {
+                "id": "3458764518461194561"
+            },
+            "endWidget": {
+                "id": "3458764518461194558"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194564",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect() - 0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>selectById() - 0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>insertWithId(msg) -0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>insert(msg) - 0.1Mops &#43; 0.2Mops/kB</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect() - 0.05Mops</li></ol>",
+            "x": 1276.4058039151,
+            "y": -1744.1758872127,
+            "width": 397.083678828907,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194565",
+            "style": {
+                "backgroundOpacity": 1,
+                "backgroundColor": "#12cdd4",
+                "borderColor": "#1a1a1a",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 2,
+                "fontSize": 36,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "center",
+                "textAlignVertical": "middle",
+                "shapeType": "rectangle"
+            },
+            "text": "<p>DB model</p>",
+            "x": 656.325848762801,
+            "y": -1744.1758872127,
+            "width": 174.566575054275,
+            "height": 130.240915299298,
+            "rotation": 0,
+            "type": "shape",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194566",
+            "startWidget": {
+                "id": "3458764518461194564"
+            },
+            "endWidget": {
+                "id": "3458764518461194565"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194567",
+            "startWidget": {
+                "id": "3458764518461194565"
+            },
+            "endWidget": {
+                "id": "3458764518461194545"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194568",
+            "startWidget": {
+                "id": "3458764518461194556"
+            },
+            "endWidget": {
+                "id": "3458764518461194545"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194569",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#fac710",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 2</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>connect()</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>disconnect()</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>send(&#34;device-${device-id}&#34;, ${msg})</li></ol>",
+            "x": -342.5844954522,
+            "y": -563.033030069799,
+            "width": 306.648781338424,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194570",
+            "startWidget": {
+                "id": "3458764518461194542"
+            },
+            "endWidget": {
+                "id": "3458764518461194569"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194571",
+            "startWidget": {
+                "id": "3458764518461194569"
+            },
+            "endWidget": {
+                "id": "3458764518461194558"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194572",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>??? 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": -337.3883665719,
+            "y": 443.281007348101,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194573",
+            "startWidget": {
+                "id": "3458764518461194546"
+            },
+            "endWidget": {
+                "id": "3458764518461194572"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194574",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 2</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": -342.5844954522,
+            "y": -272.033030069799,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194575",
+            "startWidget": {
+                "id": "3458764518461194569"
+            },
+            "endWidget": {
+                "id": "3458764518461194574"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194576",
+            "style": {
+                "backgroundColor": "#f16c7f",
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textAlign": "center",
+                "textAlignVertical": "middle"
+            },
+            "text": "<p>sequence lag calculation???</p>",
+            "x": -1392.0329187597,
+            "y": -857.780910670897,
+            "width": 199,
+            "height": 228,
+            "scale": 1.85,
+            "type": "sticker",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194577",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>??? 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li></ol>",
+            "x": -342.5844954522,
+            "y": -836.890172926998,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194578",
+            "startWidget": {
+                "id": "3458764518461194549"
+            },
+            "endWidget": {
+                "id": "3458764518461194577"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194579",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": -342.5844954522,
+            "y": -1418.890172927,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194580",
+            "startWidget": {
+                "id": "3458764518461194556"
+            },
+            "endWidget": {
+                "id": "3458764518461194579"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194581",
+            "style": {
+                "backgroundColor": "#ff9d48",
+                "fontSize": 30,
+                "fontFamily": "OpenSans",
+                "textAlign": "center",
+                "textAlignVertical": "middle"
+            },
+            "text": "<p>Add calculation</p>",
+            "x": -1026.7224823096,
+            "y": -1203.8223583027,
+            "width": 199,
+            "height": 228,
+            "scale": 1.07,
+            "type": "sticker",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194582",
+            "style": {
+                "backgroundColor": "#ff9d48",
+                "fontSize": 30,
+                "fontFamily": "OpenSans",
+                "textAlign": "center",
+                "textAlignVertical": "middle"
+            },
+            "text": "<p>Add calculation</p>",
+            "x": -1019.1866018349,
+            "y": -7.62956136949833,
+            "width": 199,
+            "height": 228,
+            "scale": 1.07,
+            "type": "sticker",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194583",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>??? 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": -1357.2038103493,
+            "y": 1384.1270377652,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194584",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 2</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": -527.059575650499,
+            "y": 1384.1270377652,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194585",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>??? 0.1Mops &#43; (0.1Mops &#43; 0.2Mops/kB) per msg</li></ol>",
+            "x": 337.7195722039,
+            "y": 1384.1270377652,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194586",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>seq: 1</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onMsg</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops &#43; 0.2Mops/kB</li></ol>",
+            "x": 1181.2038103494,
+            "y": 1384.1270377652,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194587",
+            "style": {
+                "padding": 0,
+                "backgroundOpacity": 0.4,
+                "backgroundColor": "#cee741",
+                "borderColor": "#ffffffff",
+                "borderStyle": "normal",
+                "borderOpacity": 1,
+                "borderWidth": 0,
+                "fontSize": 24,
+                "fontFamily": "OpenSans",
+                "textColor": "#1a1a1a",
+                "textAlign": "left",
+                "shapeType": "text_rect"
+            },
+            "text": "<ol><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onInit</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.1Mops</li><li data-list=\"bullet\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>onClose</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li><li data-list=\"bullet\" class=\"ql-indent-1\"><span class=\"ql-ui\"><span class=\"ql-list-ui\"></span></span>0.05Mops</li></ol>",
+            "x": -1357.2038103493,
+            "y": 1004.3949496487,
+            "width": 396.844372164583,
+            "scale": 1.71428571428571,
+            "rotation": 0,
+            "type": "text",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194588",
+            "startWidget": {
+                "id": "3458764518461194583"
+            },
+            "endWidget": {
+                "id": "3458764518461194584"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194589",
+            "startWidget": {
+                "id": "3458764518461194584"
+            },
+            "endWidget": {
+                "id": "3458764518461194585"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194590",
+            "startWidget": {
+                "id": "3458764518461194585"
+            },
+            "endWidget": {
+                "id": "3458764518461194586"
+            },
+            "style": {
+                "borderColor": "#000000",
+                "borderStyle": "normal",
+                "borderWidth": 1,
+                "lineEndType": "opaque_block",
+                "lineStartType": "none",
+                "lineType": "bezier"
+            },
+            "type": "line",
+            "createdAt": "2022-02-08T19:25:54Z",
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        },
+        {
+            "id": "3458764518461194591",
+            "type": "frame",
+            "title": "Model Simulation",
+            "children": [
+                "3458764518461194571",
+                "3458764518461194549",
+                "3458764518461194550",
+                "3458764518461194557",
+                "3458764518461194559",
+                "3458764518461194547",
+                "3458764518461194548",
+                "3458764518461194570",
+                "3458764518461194572",
+                "3458764518461194573",
+                "3458764518461194575",
+                "3458764518461194578",
+                "3458764518461194577",
+                "3458764518461194569",
+                "3458764518461194574",
+                "3458764518461194546",
+                "3458764518461194558",
+                "3458764518461194561",
+                "3458764518461194560",
+                "3458764518461194562",
+                "3458764518461194563",
+                "3458764518461194540",
+                "3458764518461194538",
+                "3458764518461194537",
+                "3458764518461194539",
+                "3458764518461194541",
+                "3458764518461194576",
+                "3458764518461194542",
+                "3458764518461194553",
+                "3458764518461194543",
+                "3458764518461194551",
+                "3458764518461194554",
+                "3458764518461194552",
+                "3458764518461194555",
+                "3458764518461194544",
+                "3458764518461194579",
+                "3458764518461194556",
+                "3458764518461194545",
+                "3458764518461194565",
+                "3458764518461194564",
+                "3458764518461194566",
+                "3458764518461194567",
+                "3458764518461194568",
+                "3458764518461194580",
+                "3458764518461194581",
+                "3458764518461194582",
+                "3458764518461194583",
+                "3458764518461194584",
+                "3458764518461194585",
+                "3458764518461194586",
+                "3458764518461194587",
+                "3458764518461194588",
+                "3458764518461194589",
+                "3458764518461194590"
+            ],
+            "x": -88,
+            "y": -109.499999999998,
+            "width": 3875.37134409034,
+            "height": 3645.08726469851,
+            "frameType": "freeform",
+            "frameFormat": "custom",
+            "style": {
+                "backgroundColor": "#ffffffff",
+                "fontSize": 14,
+                "fontFamily": "OpenSans",
+                "textAlign": "left"
+            },
+            "createdAt": "2022-02-08T19:25:54Z",
+            "createdBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            },
+            "modifiedAt": "2022-02-08T19:25:54Z",
+            "modifiedBy": {
+                "type": "user",
+                "name": "Иван Щукин",
+                "id": "3074457359487241179"
+            }
+        }
+    ],
+    "size": 55
+}

@@ -1,0 +1,126 @@
+nodes:
+  1:
+    name: Client
+    type: client
+    qty: 10
+    requests:
+      period: 1m
+      size: 1k
+  2:
+    name: Gateway
+    type: custom
+  3:
+    name: Kafka
+    type: component
+    model: 1
+  4:
+    name: Gateway
+    type: custom
+  5:
+    name: RabbitMQ
+    type: component
+    model: 2
+  6:
+    name: DB
+    type: component
+    model: 3
+
+links:
+  1:
+    seq: 1
+    parent: 1
+    child: 2
+    type: internet
+  2:
+    seq: 1
+    parent: 2
+    child: 3
+    type: local
+    actions:
+      on-init:
+        - connect()
+        - for every ${clientQty}: subscibe("device-${clientQty-i}", ${msg})
+      on-close:
+        - disconnect()
+      on-msg:
+        - send("device-${device-id}", ${msg})
+  3:
+    seq: 2
+    parent: 2
+    child: 5
+    type: internet
+    actions:
+      on-init:
+        - connect()
+      on-close:
+        - disconnect()
+      on-msg:
+        - send("device-${device-id}", ${msg})
+  4:
+    seq: 1
+    parent: 4
+    child: 5
+    type: local
+    actions:
+      on-init:
+        - connect()
+        - for every ${clientQty}: subscibe("device-${clientQty-i}", ${msg})
+      on-close:
+        - disconnect()
+  5:
+    seq: 1
+    parent: 4
+    child: 6
+    type: local
+    actions:
+      on-init:
+        - connect()
+      on-close:
+        - disconnect()
+      on-msg:
+        - selectById()
+        - insert(msg)
+
+models:
+  1:
+    type: mq
+    name: kafka:3.1.0
+    actions:
+      connect:
+        requirements:
+          cpu: 0.1Mops
+          ram: 10kb
+          storage: 0
+          network: 10kb
+      send:
+        arguments:
+          - name: topic
+            type: string
+          - name: msg
+            type: bytes
+        requirements:
+          cpu: 0.1Mops
+          cpu-per-kb: 0.2Mops
+      subscribe(topic):
+        arguments:
+          - name: topic
+            type: string
+        requirements:
+          cpu: 0.1Mops
+          cpu-per-kb: 0.2Mops/kB
+          cpu-per-msg: 0.1Mops
+      cleanUp(ttl):
+        arguments:
+          - name: ttl
+            type: number
+        requirements:
+          cpu-per-msg: 0.1Mops
+      disconnect():
+        requirements:
+          cpu-per-msg: 0.05Mops
+  2:
+    type: mq
+    name: rabbitmq:3.9
+  3:
+    type: db
+    name: postgres:14
