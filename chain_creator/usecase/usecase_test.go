@@ -11,7 +11,20 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func Test(t *testing.T) {
+func TestChainCreatorUsecase_CreateNodesChains(t *testing.T) {
+	logrus.SetLevel(logrus.TraceLevel)
+
+	ccuc := usecase.NewChainCreatorUsecase()
+
+	sc, err := domain.NewSchemeConfigFromYamlBytes(testdata.SchemeCfg)
+	require.NoError(t, err)
+
+	chains, err := ccuc.CreateNodesChains(sc)
+	require.NoError(t, err)
+	assert.Len(t, chains, 1)
+}
+
+func TestChainCreatorUsecase_CreateChains(t *testing.T) {
 	logrus.SetLevel(logrus.TraceLevel)
 
 	ccuc := usecase.NewChainCreatorUsecase()
