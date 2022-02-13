@@ -16,19 +16,23 @@ const (
 	RequirementType_PerRequestByte RequirementType = "per-request-byte"
 )
 
-func (r Requirement) Calc(rf *RequestsFlow) float64 {
+func (r Requirement) Calc(rf *RequestsFlow) (float64, error) {
+	if rf == nil {
+		return 0, ErrNilRequirement
+	}
+
 	switch r.Type {
 	case RequirementType_Once:
-		return r.Value
+		return r.Value, nil
 
 	case RequirementType_PerRequest:
-		return r.Value * float64(rf.RequestsPerSecond())
+		return r.Value * float64(rf.RequestsPerSecond()), nil
 
 	case RequirementType_PerRequestByte:
-		return r.Value * float64(rf.MsgSize)
+		return r.Value * float64(rf.MsgSize), nil
 
 	default:
 		logrus.WithField("type", r.Type).Error(ErrUnknownRequirementType)
-		return 0
+		return 0, ErrUnknownRequirementType
 	}
 }

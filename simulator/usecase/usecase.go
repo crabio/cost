@@ -3,6 +3,7 @@ package usecase
 import (
 	chain_creator_usecase "github.com/iakrevetkho/cost/chain_creator/usecase"
 	"github.com/iakrevetkho/cost/domain"
+	"github.com/sirupsen/logrus"
 )
 
 type SimulatorUsecase interface {
@@ -49,10 +50,16 @@ func (suc *simulatorUsecase) Simulate(sc *domain.SchemeConfig) (*domain.Report, 
 		for rf, as := range ns.RequestsFlows {
 			for _, a := range as {
 				for _, r := range a.Requirements {
+					value, err := r.Calc(rf)
+					if err != nil {
+						logrus.WithFields(logrus.Fields{"nodeSimulation": ns, "requestsFlows": rf, "action": a}).Error(err)
+						return nil, err
+					}
+
 					if nsr, ok := ns.Requirements[r.Resource]; ok {
-						ns.Requirements[r.Resource] = r.Resource.Sum(nsr, r.Calc(rf))
+						ns.Requirements[r.Resource] = r.Resource.Sum(nsr, value)
 					} else {
-						ns.Requirements[r.Resource] = r.Calc(rf)
+						ns.Requirements[r.Resource] = value
 					}
 				}
 			}
@@ -71,12 +78,24 @@ func (suc *simulatorUsecase) requestsFlowGradientDescent(ns map[string]*domain.N
 	// Create map with request flows for next nodes
 	outrfs := make(map[*domain.RequestsFlow][]*domain.Action)
 
+	// Translate input requests forward
 	for rf := range inrfs {
 		for _, link := range n.Links {
 			if outrf, ok := outrfs[rf]; ok {
 				outrf = append(outrf, link.Action)
 			} else {
 				outrfs[rf] = []*domain.Action{link.Action}
+			}
+		}
+	}
+
+	// Add this node requests to children
+	if n.RequestsFlow != nil {
+		for _, link := range n.Links {
+			if outrf, ok := outrfs[n.RequestsFlow]; ok {
+				outrf = append(outrf, link.Action)
+			} else {
+				outrfs[n.RequestsFlow] = []*domain.Action{link.Action}
 			}
 		}
 	}

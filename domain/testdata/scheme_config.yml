@@ -141,7 +141,7 @@ models:
             type: once
             uom: byte
             value: 10000
-          - resource: network-recewive
+          - resource: network-receive
             type: once
             uom: byte
             value: 10000
@@ -153,7 +153,7 @@ models:
             type: once
             uom: ops
             value: 100000
-          - resource: network-recewive
+          - resource: network-receive
             type: per-request-byte
             uom: byte
             value: 1
@@ -189,7 +189,7 @@ models:
             type: once
             uom: byte
             value: 10000
-          - resource: network-recewive
+          - resource: network-receive
             type: once
             uom: byte
             value: 10000
@@ -209,7 +209,7 @@ models:
             type: once
             uom: byte
             value: 10000
-          - resource: network-recewive
+          - resource: network-receive
             type: once
             uom: byte
             value: 10000
@@ -221,7 +221,7 @@ models:
             type: once
             uom: ops
             value: 100000
-          - resource: network-recewive
+          - resource: network-receive
             type: per-request-byte
             uom: byte
             value: 1
@@ -257,7 +257,7 @@ models:
             type: once
             uom: byte
             value: 10000
-          - resource: network-recewive
+          - resource: network-receive
             type: once
             uom: byte
             value: 10000
