@@ -1,12 +1,14 @@
 package usecase
 
+// TODO Chain Creator won;t be used now. It will be used for creating simulation with lags calc
+
 import (
 	"github.com/iakrevetkho/cost/domain"
 	"github.com/sirupsen/logrus"
 )
 
 type ChainCreatorUsecase interface {
-	CreateChains(sc *domain.SchemeConfig) ([]*domain.DataFlowChain, error)
+	CreateChains(sc *domain.SchemeConfig) ([]*domain.DataFlowChainBlock, error)
 }
 
 type chainCreatorUsecase struct {
@@ -17,7 +19,7 @@ func NewChainCreatorUsecase() ChainCreatorUsecase {
 	return ccuc
 }
 
-func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domain.DataFlowChain, error) {
+func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domain.DataFlowChainBlock, error) {
 	// Create map with all nodes
 	// Key - ID
 	// Value - Node
@@ -81,15 +83,51 @@ func (ccuc *chainCreatorUsecase) CreateChains(sc *domain.SchemeConfig) ([]*domai
 		}
 	}
 
-	var chains []*domain.DataFlowChain
+	var chains []*domain.DataFlowChainBlock
 
 	for id := range rootNodesMap {
 		logrus.WithField("id", id).Debug("root node")
 
-		chain := domain.NewDataFlowChain(nil, nodesMap[id], nil, nil)
+		chain := domain.NewDataFlowChainBlock(nil, nodesMap[id], nil, nil)
+
+		// node, ok := nodesMap[id]
+		// if !ok {
+		// 	return nil, domain.ErrUnknownNodeId
+		// }
+
+		// // Sort links by seq
+		// sort.Slice(node.Links, func(i, j int) bool {
+		// 	return node.Links[i].Seq < node.Links[j].Seq
+		// })
+
+		// for _, link := range node.Links {
+
+		// }
 
 		chains = append(chains, chain)
 	}
 
 	return chains, nil
+}
+
+func (ccuc *chainCreatorUsecase) CreateChain(node *domain.Node, prev *domain.DataFlowChainBlock) (*domain.DataFlowChainBlock, error) {
+	// Seeking for link that not in previous chain's blocks
+	for _, link := range node.Links {
+		if prev != nil {
+			if prev.IsLinkExists(link) {
+				// Skip chained links
+				continue
+			}
+		}
+
+		// 1. Go forward by all links with action "in" type
+		if link.Action.Direction == domain.Action_DirectionType_In {
+			block := domain.NewDataFlowChainBlock(prev, node, link.Child, link)
+
+			return ccuc.CreateChain(node, block)
+		} else {
+			// TODO
+		}
+	}
+	return nil, nil
 }

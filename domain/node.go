@@ -1,5 +1,7 @@
 package domain
 
+import "sort"
+
 type NodeType string
 
 const (
@@ -24,6 +26,11 @@ func NewNode(id string, name string, nodeType NodeType, model *Model, links []*L
 	n.Type = nodeType
 	n.Model = model
 	n.Links = links
+
+	// Sort links by seq
+	sort.Slice(n.Links, func(i, j int) bool {
+		return n.Links[i].Seq < n.Links[j].Seq
+	})
 
 	return n
 }
